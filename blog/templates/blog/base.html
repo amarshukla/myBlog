@@ -1,13 +1,17 @@
 {% load staticfiles %}
 <html>
     <body>
-        <div  class="container col s12 m3 l2 page-header">
+        <div  class="container col s12 m3 l2">
           <h1>
             <a href="{% url "blog.views.post_new" %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span>
             </a>
-            <a href="/">Amar's Blog</a>
-            <img class="responsive-img circle" src="{% static "images/amar" %}" width="100" height="100">
-            </img>
+            <div class="intro  yellow  darken-1 z-depth-1">
+              <img class="responsive-img circle" src="{% static "images/amar" %}" width="50" height="50"/>
+              <h1 class="grey-text text-lighten-5">Amar Shukla</h1>
+              
+           
+              <h5 class="grey lighten-4 grey-text text-darken-1">web developer</h5>
+            </div>
           </h1>
         </div>
 
