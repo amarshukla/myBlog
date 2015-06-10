@@ -1,24 +1,19 @@
+{% extends "blog/base.html" %}
 {% load staticfiles %}
+
 <html>
+
 	<body>
-	
-		<div  class="container col s12 m3 l2">
-		    <h1><a href="/">Amar's Blog</a><img class="responsive-img circle" src="{% static "images/amar" %}" width="100" height="100"></img></h1>
-		</div>
-		
+		{% block content %}
 		{% for post in posts %}
-		    <div class="container col s12 m3 l2">
-		        <h1><a href="">{{ post.title }}</a></h1>
+		    <div class="container col s12 m3 l2 alignText">
+    
+		        <h1><a href="{% url "blog.views.post_detail" pk=post.pk %}">{{ post.title }}</a></h1>
 		         <p>published: {{ post.publish_date }}</p>
 		        <p>{{ post.content|linebreaks }}</p>
 		    </div>
 		{% endfor %}
-
-		 <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/css/materialize.min.css">
-
-  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js"></script>
+		{% endblock content %}
           
 	</body>
 </html>
