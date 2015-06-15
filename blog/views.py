@@ -4,6 +4,7 @@ from django.http import HttpResponseRedirect
 from .models import Post
 from .forms import PostForm
 from django.utils import timezone
+from .models import Album
 
 def post_list(request):
 	posts = Post.objects.all()
@@ -26,3 +27,7 @@ def post_new(request):
 	else:
 		form = PostForm()
 	return render(request, 'blog/post_edit.html',{'form' : form})
+
+def album_list(request):
+	albums = Album.objects.using('music').all()
+	return render(request, 'blog/album_list.html',{'albums': albums})

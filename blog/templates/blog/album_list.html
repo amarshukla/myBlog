@@ -1,0 +1,10 @@
+<html>
+	<body>
+		{% for album in albums %}
+		    <div class="container col s12 m3 l2 alignText">
+    
+		        <p>{{ album.title|linebreaks }}</p>
+		    </div>
+		{% endfor %}
+	</body>
+</html>
