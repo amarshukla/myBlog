@@ -1,7 +1,16 @@
-{% block content %}
-    {% if form.errors %}
-        <p class="error">Sorry, Input is not  valid </p>
-    {% endif %}
+{%block content%}
+	<form action="/opti/registerUser/" method="post">{% csrf_token %}
+        <label for="first-name">first name:</label>
+        <input type="text" name="first" value="" id="first">
+        <label for="last-name">last name:</label>
+        <input type="text" name="last-name" value="" id="last-name">
+        <label for="username">User name:</label>
+        <input type="text" name="username" value="" id="username">
+        <label for="email">email:</label>
+        <input type="text" name="email" value="" id="email">
+        <label for="password">Password:</label>
+        <input type="password" name="password" value="" id="password">
 
-    <p>Hey user! you have registered user account with us. HAppy timewasting lol</p>
-{%  endblock %}
+        <input type="submit" value="registerUser">
+    </form>
+{%endblock%}

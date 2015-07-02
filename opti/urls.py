@@ -9,7 +9,9 @@ urlpatterns = patterns('',
     url(r'^invalid/$', views.invalidLogin),
     url(r'^loggedin/$', views.loggedin),
     url(r'^logout/$', views.logout),
-    url(r'^createUser/$', views.createUser),
+    url(r'^registera/$', views.registerUser),
     url(r'^index/$', views.list_dataset),
-    url(r'^registerUser/$', views.registerUser),
+    url(r'^registerSuccess/$', views.registerSuccess),
+    #url(r'^registerUser/$', views.registerUser),
+
 )

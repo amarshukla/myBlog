@@ -3,7 +3,7 @@ from django.views import generic
 from django.http import HttpResponseRedirect
 from django.contrib import auth
 from django.core.context_processors import csrf
-
+from django.contrib.auth.forms import UserCreationForm
 c = {}
 
 def login_user(request):
@@ -35,9 +35,20 @@ def invalidLogin(request):
 def list_dataset(request):
     return render(request, 'opti/listDataset.html')
 
-def createUser(request):
-    c.update(csrf(request))
-    return render_to_response('opti/createUser.html',c)
 def registerUser(request):
-    c.update(csrf(request))
-    return render_to_response('opti/registerUser.html',c)
+    #c.update(csrf(request))
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid:
+            form.save()
+            return HttpResponseRedirect('/opti/registerSuccess') 
+    args = {}
+    args.update(csrf(request))
+    args['form'] = UserCreationForm()
+    print args
+    return render_to_response('opti/register.html',args)
+    #return render_to_response('opti/registerUser.html',c)
+
+def registerSuccess(request):
+    
+    return render_to_response('opti/registerSuccess.html')
